@@ -12,14 +12,14 @@ logdir = 'D:\Projects\IconicMemory\datasets\Darwin\logs\';
 % options
 debug = 0;
 refreshrate = 60; % refreshrate of the stimulus screen in Hz
-date = '20180927';
+date = '20181002';
 block = 1;
 baseline_period = 200; % firs ... ms, for photodiode drift correction
 correctbaseline = 1;
 
 % luminance levels of the diodesquare and their corresponding photodiode
 % values
-steplevels = [1 0.5 0.7 0];
+steplevels = [1 0.5 0.7 0]; % don't change this order (unless you know what you're doing)
 lumlevels = [...
 0,      0.001,      -0.01;...
 0.5,    -0.05,  -0.075;...
@@ -239,6 +239,11 @@ for trl = 1:ntrls
         badtrials(end+1) = trl;
     end
 end
+
+% distribution for actual stimulus onset relative to stimbit 
+figure
+histogram(dio_stimon*1000);
+xlabel('time difference (ms)');
 
 % compare stimduration 
 figure
