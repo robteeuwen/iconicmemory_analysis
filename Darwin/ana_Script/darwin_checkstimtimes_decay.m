@@ -12,7 +12,7 @@ logdir = 'D:\Projects\IconicMemory\datasets\Darwin\logs\';
 % options
 debug = 0;
 refreshrate = 60; % refreshrate of the stimulus screen in Hz
-date = '20181002';
+date = '20181004';
 block = 1;
 baseline_period = 200; % firs ... ms, for photodiode drift correction
 correctbaseline = 1;
@@ -277,6 +277,7 @@ LOG.diode.dio_stimdur = dio_stimdur;
 LOG.diode.dio_maskisi = dio_maskisi;
 LOG.diode.stimdiff = stimdiff;
 LOG.diode.maskdiff = maskdiff;
+LOG.diode.stim_onset = dio_stimon;
 save([logdir log],'LOG');
 
 disp([num2str(sum(goodtrials)) ' trials out of ' num2str(length(goodtrials)) ' were ok.' ]);
