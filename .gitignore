@@ -1,0 +1,12 @@
+
+# ignore directories that contain data or reproducable content
+*/RawData
+*/forUlf
+*/logs
+*/Figures
+*/extractdata
+*/stim_Script
+
+# ignore mat files and excell files 
+*.mat
+*.csv
