@@ -10,3 +10,4 @@
 # ignore mat files and excell files 
 *.mat
 *.csv
+*.asv

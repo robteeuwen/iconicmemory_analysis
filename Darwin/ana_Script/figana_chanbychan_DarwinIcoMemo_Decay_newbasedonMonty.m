@@ -35,7 +35,7 @@ ci = zeros(96,2);
 
 %132 sessions with fix stim dur and var mask onset
 % timing issues fixed from session 151 onwards
-Sessions = 151:157; %136:150; % 131:135; %132:135;%
+Sessions = 151:160; %136:150; % 131:135; %132:135;%
 SNR = zeros(1,48);
 
 % target connected in RF: 6
@@ -578,6 +578,16 @@ for array = 2
         %         hAx(1).YLim = [0 160];
         %         hAx(2).YLim = [.5 .8];
         %         legend([hLine1;hLine2],'neuronal','behavior','Location','northeast');
+        
+        % --- STATISTICS
+        figure
+        subplot(1,2,1); 
+        plot(Poss_CueTime,perf_m_average);
+        subplot(1,2,2); 
+        plot(Poss_CueTime,AUC_m_avg);
+        
+        % linear regression
+        [b,bint,r,rint,stats] = regress(AUC_m_avg',[ones(length(perf_m_average),1) perf_m_average']);
         
         %% behavior
 %         plot(Poss_CueTime(1:min(numel(Poss_CueTime),6)),  perf_m(2,1:min(numel(Poss_CueTime),6))./sum(perf_m(:,1:min(numel(Poss_CueTime),6))),'r')

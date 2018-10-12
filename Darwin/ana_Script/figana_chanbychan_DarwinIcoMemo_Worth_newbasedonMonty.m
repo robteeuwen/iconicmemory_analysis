@@ -32,8 +32,9 @@ StimCondStr = {'Short', 'Long'};
 Cond = cell(96,2,2,2);
 ci = zeros(96,2);
 
-
-Sessions = 118:130; %118:130;%125:128;
+% final worth experiments with timing issues: 118-130
+% after timing issues were fixed (photodiode): 
+Sessions = 161:163; %118:130; %118:130;%125:128;
 SNR = zeros(1,48);
 
 % target connected in RF: 6
@@ -68,6 +69,13 @@ for array = 2
                     if numel(trials)>size(e,2)
                         trials = trials(1:size(e,2));     
                     end
+                    
+                    %%% REMOVE THE FOLLOWING LINE IF THERE WAS NO DIODE
+                    if isfield(LOG,'diode')
+                        trials = trials(find(LOG.diode.goodtrials));
+                        e = e(:,find(LOG.diode.goodtrials));
+                    end
+                    
                     days = [days, s*ones(1,size(e,2))];
                     if isempty(AllTrials)
                         AllTrials=e;
@@ -471,7 +479,7 @@ for array = 2
         %% example neuronal activity figure
         figure
         cd = 1;
-        
+        ylim1 = [-2 2];
         a = plot(tb, smooth(connected_m_avg{2,cd}, smoothness), 'b', 'LineWidth',1.5); ylim(ylim1); hold all;
             
         % masked unconnected (red, thick)

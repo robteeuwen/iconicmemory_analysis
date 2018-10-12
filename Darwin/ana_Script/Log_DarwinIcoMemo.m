@@ -686,3 +686,21 @@ i = i+1; % id
 info(i).Tankname = 'Darwin_20181004' ;  
 info(i).goodblocs = [1];
 
+%% worth collection after timing issues are fixed
+% huge issues with the ZIF clip, big noise levels that were fluctuatign a
+% lot caused the computer to crash. We found out it was a bad ZIF clip and
+% possibly a bad connector. data from 20181008 is useless. from 20181009
+% should be fine, and 20181010 had the connectors swapped, so it may be
+% weird, possibly exclude this. 
+
+i = i+1; % id
+info(i).Tankname = 'Darwin_20181009' ;  
+info(i).goodblocs = [1];
+
+i = i+1; % id
+info(i).Tankname = 'Darwin_20181010' ;  
+info(i).goodblocs = [1 2];
+
+i = i+1; % id
+info(i).Tankname = 'Darwin_20181011' ;  
+info(i).goodblocs = [1];

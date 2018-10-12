@@ -9,7 +9,7 @@ function XtractData_IcoMemo
 rawdir = 'D:\Projects\IconicMemory\datasets\Darwin\RawData\'; %%'\\vcnin\iconicmem\datasets\Darwin\RawData\';
 addpath(rawdir)
 % rawdir = 'Z:\Daan\Bobo_Gestalt\';
-xtractdir = 'D:\Projects\IconicMemory\datasets\Darwin\extractdata\20181004\';
+xtractdir = 'D:\Projects\IconicMemory\datasets\Darwin\extractdata\20181010\';
 mkdir(xtractdir)
 
 % info = Duvel_Logfile_Iconic;
@@ -22,8 +22,8 @@ eyeon = 1;
 emp = 1;
 for N = 1
     
-    Tankname = 'Darwin_20181004';
-    Blockno = [1];
+    Tankname = 'Darwin_20181010';
+    Blockno = [1 2];
     
     %make a filename for the xtracted data and event file
     savename = ['Xtract_',Tankname];
